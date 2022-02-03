@@ -1,0 +1,126 @@
+/* #region General */
+body {
+    background-image: url("../../images/Bkgrd.png");
+    background-size: cover;
+  }
+  
+  img {
+    width: 400px;
+    border-radius: 150px;
+    float: left;
+    margin-right: 10px;
+    margin-left: 150px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  /* #endregion */
+  
+  /* #region EMs */
+  em.SiteName {
+    color: greenyellow;
+    font-style: normal;
+    font-size: 20px;
+  }
+  
+  em.Heading {
+    left: 50%;
+    margin-left: 550px;
+    font-style: normal;
+  }
+  
+  em.desc {
+    margin-bottom: 30px;
+    color: rgb(229, 255, 0);
+    font-family: "Times New Roman", Times, serif;
+    font-style: normal;
+    white-space: pre-line;
+    font-size: 17px;
+  }
+  
+  em.Link {
+    color: rgb(247, 8, 8);
+    font-style: bold;
+    font-size: 25px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    margin-left: 500px;
+    margin-bottom: 0px;
+    white-space: pre-line;
+  }
+  
+  em.Padding {
+    margin-bottom: 200px;
+    margin-top: 200px;
+  }
+  /* #endregion EMs */
+  
+  /* #region Paragraphs */
+  p.mention {
+    font-weight: bold;
+    font-size: 20px;
+    color: chartreuse;
+  }
+  
+  p.desc {
+    color: rgb(255, 255, 255);
+    font-family: "Times New Roman", Times, serif;
+    font-style: normal;
+    font-size: 17px;
+    margin-left: 30%;
+    white-space: pre-line;
+  }
+  /* #endregion Paragraphs */
+  
+  /* #region Lines */
+  hr {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    /* margin-bottom: 70px; */
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+  }
+  
+  .vertLeft {
+    border-left: 3px solid white;
+    background-color: black;
+    border-width: 1px;
+    height: 1130px;
+    position: absolute;
+    left: 10%;
+  }
+  .vertRight {
+    border-left: 3px solid white;
+    background-color: black;
+    border-width: 1px;
+    height: 1130px;
+    position: absolute;
+    left: 90%;
+  }
+  
+  /* #endregion Lines */
+  
+  /* #region Buttons */
+  .button {
+    background-color: darkcyan; /* Green */
+    border: gainsboro;
+    border-radius: 30px;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  .button1 {
+    border-radius: 2px;
+  }
+  .button5 {
+    border-radius: 50%;
+    position: absolute;
+    margin-left: 50%;
+    bottom: 0;
+  }
+  /* #endregion Buttons */

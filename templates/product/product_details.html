@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Product {{ object.product_id }}</h1>
+<p>
+    {{ object.name }} <br>
+    MRP : {{ object.MRP }} <br>
+    Selling price : {{ object.sellPrice }}
+</p>
+<form action="{% url 'userCart' %}" method="POST">
+    {% csrf_token %}
+    <button id="product_id" name="product_id" value="{{ object.product_id }}">Add to Cart</button>
+</form>
+
+{% endblock %}

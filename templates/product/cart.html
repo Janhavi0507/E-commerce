@@ -1,0 +1,17 @@
+{% extends 'html/base.html' %}
+
+{% block content %}
+
+<h2>Cart: User - {{ object.User.username }}</h2>
+
+<ul>
+{% for product in Products %}
+<li>
+
+  <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+
+</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

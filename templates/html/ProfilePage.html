@@ -1,0 +1,20 @@
+{% include "html/base.html" %}
+
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles/profile.css' %}" type="text/css">
+{% endblock %}
+
+{% block content %}
+
+<!-- {% csrf_token %} -->
+
+<!-- {% if user is not None %} -->
+<!-- {% else %}
+<h1>NO user</h1>
+{% endif %} -->
+
+<h1>{{ user.username }}</h1>
+
+
+{% endblock %}

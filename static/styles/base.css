@@ -1,0 +1,95 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: white;
+}
+
+.navbar {
+  position: relative;
+  overflow: hidden;
+  height: 60px;
+  width: 100%;
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  font-size: 22px;
+  list-style: none;
+  display: inline-flex;
+}
+
+.navbar li a {
+  text-decoration: none;
+  font-size: 25px;
+  color: rgb(0, 0, 0);
+  height: 100%;
+  width: 100%;
+}
+
+.menu {
+  width: 50%;
+  height: 100%;
+}
+
+.menulinks {
+  height: 100%;
+}
+
+.account {
+  width: 50%;
+  height: 100%;
+  margin: 0;
+  
+}
+
+.accountlinks {
+  padding: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  margin: 0;
+  height: 100%;
+  float: right;
+}
+
+.accountlinks:hover {
+  background-color: rgb(0, 0, 0);
+  color: rgb(189, 222, 255);
+}
+
+/* #region Footer */
+
+.footer {
+  width: 100%;
+  height: 200px;
+  display: inline-flex;
+  background-color: white;
+}
+
+.footer .info {
+  width: 50%;
+  height: 100%;
+}
+
+.footer .socialMedia {
+  width: 50%;
+  height: 100%;
+}
+
+.footer .socialMedia a {
+  display: block;
+  padding-top: 4%;
+  font-size: 20px;
+  text-align: center;
+}
+
+.footer .socialMedia a, i {
+  margin-right: 10px;
+}
+
+.footer .info h3 {
+  font-size: 20px;
+  text-align: center;
+  padding-top: 80px;
+}
+
+/* #endregion */
