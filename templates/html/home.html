@@ -6,6 +6,447 @@
 
 {% block content %}
 
-<p>Home</p>
+<style>
+  * {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .Body {
+    margin-left: 72px;
+  }
+  /* body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1d212b;
+  } */
+
+  /* #region Slider Styling */
+
+  .slider {
+    width: 100%;
+    height: 300px;
+    border-radius: 0px;
+    overflow: hidden;
+    align-items: center;
+    margin-left: 250px;
+  }
+
+  .slides {
+    width: 500%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+  }
+
+  .slides input {
+    display: none;
+  }
+
+  .slide {
+    width: 20%;
+    transition: 1s;
+  }
+
+  .slide img {
+    width: 500px;
+    height: 300px;
+  }
+  .navigation-manual {
+    position: absolute;
+    width: 800px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .manual-btn {
+    border: 2px solid #40d3dc;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+  }
+
+  .manual-btn:not(:last-child) {
+    margin-right: 40px;
+  }
+
+  .manual-btn:hover {
+    background: #40d3dc;
+  }
+
+  #radio1:checked ~ .first {
+    margin-left: 0;
+  }
+
+  #radio2:checked ~ .first {
+    margin-left: -20%;
+  }
+
+  #radio3:checked ~ .first {
+    margin-left: -40%;
+  }
+
+  #radio4:checked ~ .first {
+    margin-left: -60%;
+  }
+
+
+  .navigation-auto {
+    position: absolute;
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    margin-top: 235px;
+  }
+
+  .navigation-auto div {
+    border: 2px solid #40d3dc;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+  }
+
+  .navigation-auto div:not(:last-child) {
+    margin-right: 40px;
+  }
+
+  #radio1:checked ~ .navigation-auto .auto-btn1 {
+    background: #40d3dc;
+  }
+
+  #radio2:checked ~ .navigation-auto .auto-btn2 {
+    background: #40d3dc;
+  }
+
+  #radio3:checked ~ .navigation-auto .auto-btn3 {
+    background: #40d3dc;
+  }
+
+  #radio4:checked ~ .navigation-auto .auto-btn4 {
+    background: #40d3dc;
+  }
+
+  /* #endregion Slider Styling */
+
+  /* #region category-section */
+
+  .category-row {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: auto;
+    margin-top: 60px;
+    text-align: center;
+    /* background-image: url("images/Bkgrd2.png"); */
+    background-color: black;
+  }
+  .category-col {
+    padding: 10px 0px;
+    cursor: pointer;
+    color: white;
+  }
+
+  .category-col img {
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+    background-color: black;
+  }
+  h5 {
+    font-weight: 800px;
+    font-size: 15px;
+  }
+  .category-col h5:hover {
+    color: #e5ff00;
+    font-weight: 400px;
+  }
+  /* #endregion category-section */
+
+  /* #region banner section */
+  .banner {
+    width: 100%;
+    overflow: hidden;
+    left: 0%;
+    background-image: url("/./Component_Images/banner4.jpg");
+    background-position: 0%;
+  }
+  .slider {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    animation-name: slide;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+  }
+
+  .slider img {
+    width: 100%;
+    height: 100%;
+  }
+  @keyframes slide {
+    0% {
+      left: 0px;
+    }
+    26.66% {
+      left: 0px;
+    }
+    33.33% {
+      left: -1366px;
+    }
+    60% {
+      left: -1366px;
+    }
+    66.66% {
+      left: -2732px;
+    }
+    93.33% {
+      left: -2732px;
+    }
+
+    100% {
+      left: -4098px;
+    }
+  }
+  /* #endregion banner section */
+
+  /* #region card-section */
+
+  .card {
+    box-shadow: rgb(255, 255, 255) 0px 0px 5px 1px;
+    padding: 10px 0px;
+    /* margin: 10px 5px; */
+    border: none;
+    /* border-color: darkblue; */
+    background-color: rgb(22, 22, 21);
+    background-image: url("images/Prod_Bkgrd/PB4.png");
+    background-size: cover;
+  }
+
+  .common-heading {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px 20px;
+    margin-top: 20px;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 /16%);
+  }
+
+  .common-heading-left h1 {
+    font-size: 25px;
+    font-weight: 800;
+    padding: auto;
+    color: rgb(81, 255, 0);
+  }
+
+  .common-heading-left h2 {
+    font-size: 15px;
+    padding: 5px 0px;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+  }
+
+  .common-heading-right button {
+    width: 130px;
+    height: 35px;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    background: transparent;
+    border: none;
+    text-decoration: underline;
+    padding: 0 5px 0 5px;
+  }
+
+  .common-heading-right button:hover {
+    font-weight: 700;
+    background-color: rgb(255, 255, 255);
+    border-width: 3px;
+    border-color: rgb(0, 68, 255);
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+  }
+
+  .common-row {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    max-height: 366px;
+    margin: 10px 0px;
+  }
+
+  .common-col {
+    text-align: center;
+    line-height: 22px;
+  }
+
+  .common-col img {
+    width: 69px;
+    height: 150px;
+    transition: 300ms;
+    border-radius: 10px;
+  }
+
+  .common-col img:hover {
+    transform: scale(0.9);
+  }
+
+  .common-col h3,
+  h4,
+  h6 {
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    cursor: pointer;
+  }
+
+  .common-col h3 {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 500px;
+    color: white;
+  }
+
+  .common-col h4 {
+    color: yellow;
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  .common-col h6 {
+    color: rgb(0, 255, 55);
+    font-size: 14px;
+    font-weight: 400;
+  }
+  /* #endregion card-section */
+</style>
+</head>
+<body>
+
+<section class="Body">
+  <section>
+    <div class="category-row">
+      <div class="category-col">
+        <img src=" ./Component_Images/hp5.png" alt="" />
+        <h5>Electronics</h5>
+      </div>
+      <div class="category-col">
+        <img src=" ./Component_Images/hp3.png" alt="" />
+        <h5>Mobile</h5>
+      </div>
+      <div class="category-col">
+        <img src="./Component_Images/hp1.png" alt="" />
+        <h5>Top Offers</h5>
+      </div>
+      <div class="category-col">
+        <img src=" ./Component_Images/hp6.png" alt="" />
+        <h5>Home</h5>
+      </div>
+      <div class="category-col">
+        <img src=" ./Component_Images/hp7.png" alt="" />
+        <h5>Appliances</h5>
+      </div>
+      <div class="category-col">
+        <img src=" ./Component_Images/hp4.png" alt="" />
+        <h5>Fashion</h5>
+      </div>
+      <div class="category-col">
+        <img src=" ./Component_Images/hp2.png" alt="" />
+        <h5>Grocery</h5>
+      </div>
+      <div class="category-col">
+        <img src=" ./Component_Images/hp8.png" alt="" />
+        <h5>Travel</h5>
+      </div>
+      <div class="category-col">
+        <img src=" ./Component_Images/hp9.png" alt="" />
+        <h5>Beauty, Toys & More</h5>
+      </div>
+    </div>
+  </section>
+
+  <!-- banner section -->
+  <section>
+    <div class="banner">
+      <div class="slider">
+        <img src="./Component_Images/banner4.jpg" alt="banner" />
+        <img src="./Component_Images/banner2.jpg" alt="banner" />
+        <img src="./Component_Images/banner3.jpg" alt="banner" />
+        <img src="./Component_Images/banner1.jpg" alt="banner" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile section -->
+
+  <section>
+    <div class="card">
+      <div class="common-heading">
+        <div class="common-heading-left">
+          <h1>Smart Phones</h1>
+          <h2>Today's Top Deals</h2>
+        </div>
+        <div class="common-heading-right">
+          <button>View more</button>
+        </div>
+      </div>
+      <div class="common-row">
+        <div class="common-col">
+          <img src=" ./Component_Images/smp_3.jpeg" alt="mobile" />
+          <h3>vivo</h3>
+          <h4>5000 mAh Battery</h4>
+          <h6>Now <i class="fas fa-rupee-sign"></i>15999/-</h6>
+        </div>
+        <div class="common-col">
+          <img src=" ./Component_Images/smp_1.jpeg" alt="mobile" />
+          <h3>Poco M2 pro</h3>
+          <h4>5000 mAh Battery</h4>
+          <h6>Now <i class="fas fa-rupee-sign"></i>13999/-</h6>
+        </div>
+        <div class="common-col">
+          <img src="/./Component_Images/smp_2.jpeg" alt="mobile" />
+          <h3>techo spark</h3>
+          <h4>4500 mAh Battery</h4>
+          <h6>Now <i class="fas fa-rupee-sign"></i>14999/-</h6>
+        </div>
+        <div class="common-col">
+          <img src=" ./Component_Images/smp_4.jpeg" alt="mobile" />
+          <h3>samsung</h3>
+          <h4>5500 mAh Battery</h4>
+          <h6>Now <i class="fas fa-rupee-sign"></i>23999/-</h6>
+        </div>
+        <div class="common-col">
+          <img src=" ./Component_Images/smp_5.jpeg" alt="mobile" />
+          <h3>realme</h3>
+          <h4>5000 mAh Battery</h4>
+          <h6>Now <i class="fas fa-rupee-sign"></i>13999/-</h6>
+        </div>
+        <div class="common-col">
+          <img src=" ./Component_Images/smp_6.jpeg" alt="mobile" />
+          <h3>oppo pro</h3>
+          <h4>5200 mAh Battery</h4>
+          <h6>Now <i class="fas fa-rupee-sign"></i>18999/-</h6>
+        </div>
+        <div class="common-col">
+          <img src=" ./Component_Images/smp_7.jpeg" alt="mobile" />
+          <h3>samsung</h3>
+          <h4>5000 mAh Battery</h4>
+          <h6>Now <i class="fas fa-rupee-sign"></i>11999/-</h6>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+</body>
+</html>
 
 {% endblock %}

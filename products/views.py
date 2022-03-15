@@ -1,6 +1,7 @@
 from django.urls import reverse_lazy
+from carts.models import Cart
 from .forms import ProductForm
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import Product
 from django.views.generic import (
     CreateView, DetailView, UpdateView, ListView, DeleteView
@@ -21,14 +22,16 @@ class ProductListView(ListView):
   template_name = 'product/product_list.html'
   queryset = Product.objects.all()
 
-class ProductDetailsView(DetailView):
-  template_name = 'product/product_details.html'
-  queryset = Product.objects.all()
+def ProductDetailsView(request, pid):
+  product = Product.objects.filter(product_id=pid).get()
+  cart = Cart.objects.filter(User=request.user).get()
+  context = {
+    'object' : product,
+    'cart' : cart,
+  }
+  return render(request, 'product/product_details.html', context)
 
-  def get_object(self):
-    id_ = self.kwargs.get("id")
-    return get_object_or_404(Product, product_id = id_)
-  
+
 class ProductUpdateView(UpdateView):
   template_name = 'product/product_update.html'
   form_class = ProductForm

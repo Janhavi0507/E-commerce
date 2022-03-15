@@ -4,27 +4,52 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>E-commerce</title>
-    <link rel="stylesheet" href="{% static 'styles/base.css' %}" type="text/css" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="font awsome icon/css/all.css" />
+  <link rel="stylesheet" href="font style/Roboto-MediumItalic.ttf" />
 
-    {% block head %} 
-    {% endblock head %}
+  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="First HTML Program" />
+
+  <title>E-commerce</title>
+  <link rel="stylesheet" href="{% static 'styles/base.css' %}" type="text/css" />
+  <link href="{% static 'styles/navbar.css' %}" rel="stylesheet" />
+  {% block head %}
+  {% endblock head %}
 
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="navbar">
-            <a href="{% url 'login' %}">Login</a>
-            <a href="{% url 'logout' %}">Logout</a>
-            <a href="{% url 'userCart' %}">Cart</a>
-        </div>
-        {% block content %}
-        {% endblock content %}
+  <div class="first">
+    {% include 'html/navbar.html' %}
+  </div>
+  <div class="second">
+    {% include 'html/sidebar.html' %}
+    <div class="container" id="main">
+      {% block content %}
+      {% endblock content %}
     </div>
+  </div>
 </body>
 
 </html>

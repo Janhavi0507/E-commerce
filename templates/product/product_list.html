@@ -1,14 +1,39 @@
 {% extends 'html/base.html' %}
 
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles/product.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+{% endblock head %}
+
 {% block content %}
 
-{% for instance in object_list %}
+{% if object_list is not none %}
+<div class="pro_list">
+    <ul class="item-list">
+        {% for instance in object_list %}
+        <li class="item">
+            <div class="card" style="width: 18rem;">
+                <img src="/media/{{ instance.image }}" class="card-img-top" alt="{{ instance.name }}" width="100%">
+                <div class="card-body">
+                    <a href="{{ instance.get_absolute_url }}">
+                        <h3 class="card-title">{{ instance.name }}</h3>
+                    </a>
+                    <p class="card-text">MRP: {{ instance.sellPrice }}</p>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 
-    <p>
-        <img src='{{ instance.image }}' class="prod-size">
-        <a href='{{ instance.get_absolute_url }}'>{{ instance.name }}</a>
-    </p>
-
-{% endfor %}
+{% endif %}
 
 {% endblock %}

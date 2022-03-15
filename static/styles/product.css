@@ -1,0 +1,22 @@
+/* #region list */
+
+.item-list {
+  display: flex;
+}
+
+.item {
+  list-style: none;
+  padding: 10px;
+  margin: 0 20px;
+}
+
+.item .card a {
+  text-decoration: none;
+}
+
+.submit-btn {
+  color: white;
+  background-color: black;
+}
+
+/* #endregion */

@@ -1,16 +1,39 @@
-{% extends 'base.html' %}
+{% extends 'html/base.html' %}
+
+{% block head %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% endblock %}
 
 {% block content %}
 
-<h1>Product {{ object.product_id }}</h1>
-<p>
-    {{ object.name }} <br>
-    MRP : {{ object.MRP }} <br>
-    Selling price : {{ object.sellPrice }}
-</p>
-<form action="{% url 'userCart' %}" method="POST">
+<div class="card" style="width: 18rem;">
+    <img src="/media/{{ object.image }}" class="card-img-top" alt="..." width="100%">
+    <div class="card-body">
+        <h3 class="card-title">{{ object.name }}</h3>
+        <p class="card-text">MRP : {{ object.MRP }}</p>
+        <p class="card-text">Selling price : {{ object.sellPrice }}</p>
+    </div>
+</div>
+
+{% if object not in cart.Products.all %}
+<form action="{% url 'addToCart' %}" method="post">
     {% csrf_token %}
-    <button id="product_id" name="product_id" value="{{ object.product_id }}">Add to Cart</button>
+    <input type="hidden" name="product_id" value="{{ object.product_id }}">
+    <button class="submit-btn" type="submit" id="product_id">Add to Cart</button>
+</form>
+{% else %}
+<form action="{% url 'addToCart' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="product_id" value="{{ object.product_id }}">
+    <button class="submit-btn" type="submit" id="product_id">Remove from Cart</button>
 </form>
 
+{% endif %}
 {% endblock %}
